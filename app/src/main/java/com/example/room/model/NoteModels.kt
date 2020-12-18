@@ -8,11 +8,11 @@ import androidx.room.PrimaryKey
 data class NoteModels(
 
     @PrimaryKey(autoGenerate = true)
-    val id: Int?,
+    val id: Int?=null,
 
-    @ColumnInfo
+    @ColumnInfo(name = "title")
     val title: String,
 
-    @ColumnInfo
+    @ColumnInfo(name = "note")
     val note: String
 )
