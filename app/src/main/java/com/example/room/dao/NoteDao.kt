@@ -16,10 +16,10 @@ interface NoteDao {
     fun getAllNote(): List<NoteModels>
 
     @Query("SELECT * FROM Note WHERE title = :title")
-    fun getStudentByTitle(title: String): List<NoteModels>
+    fun getNoteByTitle(title: String): List<NoteModels>
 
     @Query("SELECT * FROM Note WHERE id = :id")
-    fun getStudentById(id: Int): List<NoteModels>
+    fun getNoteById(id: Int): List<NoteModels>
 
     @Delete
     fun DeleteNote(note:NoteModels)
