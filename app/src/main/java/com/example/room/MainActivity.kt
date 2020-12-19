@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         val note3 = NoteModels(id = 3,title = "developer",note = "i;m programming android")
 
         Thread{
-            //dao?.DeleteNote(note3)
+//            dao?.DeleteNote(note3)
 
-            dao?.getAllNote()?.forEach { Log.i("ROOM_DB","id : ${it.id} ||| title : ${it.title} ||| note : ${it.note}") }
+            dao?.getNoteById(1)?.forEach { Log.i("ROOM_DB","id : ${it.id} ||| title : ${it.title} ||| note : ${it.note}") }
 
         }.start()
 
