@@ -3,14 +3,12 @@ package com.example.room
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.database.MyDatabase
-import com.example.room.model.ListNotesModel
 import com.example.room.model.NoteModels
+import com.example.room.utility.ConvertNoteModelToListNotes
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
             dao?.getNoteById(1)?.forEach { Log.i("ROOM_DB","id : ${it.id} ||| title : ${it.title} ||| note : ${it.note}") }
 
-            recyclerView.adapter = ListNotesAdapter(noteModelsToListNotes(dao?.getAllNote()))
+            recyclerView.adapter = ListNotesAdapter(ConvertNoteModelToListNotes().convertNoteToListNotes(dao?.getAllNote()))
         }.start()
 
     }
@@ -42,17 +40,5 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.rcy_mainActivity_listNote)
         recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
 
-    }
-
-    private fun noteModelsToListNotes(data:List<NoteModels>?):List<ListNotesModel>{
-        val datas = arrayListOf<ListNotesModel>()
-
-        data?.forEach {
-            datas.add(
-                ListNotesModel(it.id!!,it.title,it.note)
-            )
-        }
-
-        return datas
     }
 }
