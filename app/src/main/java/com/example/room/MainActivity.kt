@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.database.MyDatabase
 import com.example.room.model.ListNotesModel
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun CastView(){
 
         recyclerView = findViewById(R.id.rcy_mainActivity_listNote)
-        recyclerView.layoutManager = GridLayoutManager(this,2,LinearLayoutManager.VERTICAL,false)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
 
     }
 
