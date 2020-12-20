@@ -16,4 +16,11 @@
     <color name="colorItemTextTitleNotes">#141414</color>
     <color name="colorItemTextTextNotes">#6F6F6F</color>
 
+    <!--    color layout AddActivityMain    -->
+    <color name="colorAddNoteActivity_Title">#141414</color>
+    <color name="colorAddNoteActivity_HintTitle">#6F6F6F</color>
+
+    <color name="colorAddNoteActivity_Note">#3B3B3B</color>
+    <color name="colorAddNoteActivity_HintNote">#6F6F6F</color>
+
 </resources>
