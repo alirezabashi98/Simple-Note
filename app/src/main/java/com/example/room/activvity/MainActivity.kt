@@ -1,12 +1,12 @@
-package com.example.room
+package com.example.room.activvity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.room.R
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.database.MyDatabase
-import com.example.room.model.NoteModels
 import com.example.room.utility.ConvertNoteModelToListNotes
 import org.koin.android.ext.android.inject
 
