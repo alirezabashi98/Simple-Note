@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val note3 = NoteModels(title = "demo",note = "i'm programming android")
 
         Thread{
-            dao?.insert(note3)
+//            dao?.insert(note3)
 
             dao?.getNoteById(1)?.forEach { Log.i("ROOM_DB","id : ${it.id} ||| title : ${it.title} ||| note : ${it.note}") }
 
