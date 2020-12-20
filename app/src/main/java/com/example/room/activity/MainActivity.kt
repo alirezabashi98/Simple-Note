@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        title = "Notes"
 
         CastView()
-        title = "Notes"
 
         val db = MyDatabase.getMyDatabase(this)
         val dao = db?.noteDAO()
