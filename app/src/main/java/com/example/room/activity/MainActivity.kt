@@ -1,4 +1,4 @@
-package com.example.room.activvity
+package com.example.room.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
