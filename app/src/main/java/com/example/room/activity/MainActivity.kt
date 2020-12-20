@@ -1,6 +1,9 @@
 package com.example.room.activity
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -49,5 +52,25 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        val menuInflater = menuInflater.inflate(R.menu.add_note, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+
+            R.id.item_menuAddNote -> Toast.makeText(this, "add note", Toast.LENGTH_LONG).show()
+            else -> {
+            }
+
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }
