@@ -49,6 +49,5 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.6"
 
     // Koin for Android
-
     implementation "org.koin:koin-android:$koin_version"
 }

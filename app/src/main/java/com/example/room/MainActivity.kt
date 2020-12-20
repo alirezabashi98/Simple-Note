@@ -1,18 +1,18 @@
 package com.example.room
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.database.MyDatabase
-import com.example.room.model.NoteModels
 import com.example.room.utility.ConvertNoteModelToListNotes
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var recyclerView : RecyclerView
+    lateinit var recyclerView: RecyclerView
+    val convertNotesModelToListNotes: ConvertNoteModelToListNotes by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,22 +23,20 @@ class MainActivity : AppCompatActivity() {
         val db = MyDatabase.getMyDatabase(this)
         val dao = db?.noteDAO()
 
-        val note3 = NoteModels(title = "demo",note = "i'm programming android")
+        Thread {
 
-        Thread{
-//            dao?.insert(note3)
+            recyclerView.adapter =
+                ListNotesAdapter(convertNotesModelToListNotes.convertNoteToListNotes(dao?.getAllNote()))
 
-            dao?.getNoteById(1)?.forEach { Log.i("ROOM_DB","id : ${it.id} ||| title : ${it.title} ||| note : ${it.note}") }
-
-            recyclerView.adapter = ListNotesAdapter(ConvertNoteModelToListNotes().convertNoteToListNotes(dao?.getAllNote()))
         }.start()
 
     }
 
-    private fun CastView(){
+    private fun CastView() {
 
         recyclerView = findViewById(R.id.rcy_mainActivity_listNote)
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager =
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
     }
 }
