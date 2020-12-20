@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.database.MyDatabase
+import com.example.room.model.NoteModels
 import com.example.room.utility.ConvertNoteModelToListNotes
 import org.koin.android.ext.android.inject
 
@@ -23,7 +24,17 @@ class MainActivity : AppCompatActivity() {
         val db = MyDatabase.getMyDatabase(this)
         val dao = db?.noteDAO()
 
+//        val dataNotes = listOf(
+//            NoteModels(title = "telegram",note = "t.me/yardeveloper"),
+//            NoteModels(title = "instagram",note = "instagram.com/yardeveloper"),
+//            NoteModels(title = "developer",note = "developer android"),
+//            NoteModels(title = "MyName",note = "i'm alirezabashi98"),
+//            NoteModels(title = "MyNames",note = "i'm alirezabashi98 i'm alirezabashi98i'm alirezabashi98i'm alirezabashi98i'm alirezabashi98")
+//        )
+
         Thread {
+
+//            dao?.inserts(dataNotes)
 
             recyclerView.adapter =
                 ListNotesAdapter(convertNotesModelToListNotes.convertNoteToListNotes(dao?.getAllNote()))
