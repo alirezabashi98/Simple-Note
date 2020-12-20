@@ -11,6 +11,7 @@ import com.example.room.R
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.database.MyDatabase
 import com.example.room.utility.ConvertNoteModelToListNotes
+import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         CastView()
+        title = "Notes"
 
         val db = MyDatabase.getMyDatabase(this)
         val dao = db?.noteDAO()
@@ -55,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         when (item.itemId) {
 
-            R.id.item_menuAddNote -> Toast.makeText(this, "add note", Toast.LENGTH_LONG).show()
+            R.id.item_menuAddNote -> startActivity<AddNoteActivity>()
             else -> {
             }
 
