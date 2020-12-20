@@ -50,4 +50,9 @@ dependencies {
 
     // Koin for Android
     implementation "org.koin:koin-android:$koin_version"
+    
+    // Anko Commons
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+
 }

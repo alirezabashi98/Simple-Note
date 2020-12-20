@@ -5,6 +5,9 @@ buildscript {
     // latest stable
     ext.koin_version = '2.2.2'
 
+    // library anko
+    ext.anko_version='0.10.5'
+
     repositories {
         google()
         jcenter()
