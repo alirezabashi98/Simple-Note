@@ -27,17 +27,7 @@ class MainActivity : AppCompatActivity() {
         val db = MyDatabase.getMyDatabase(this)
         val dao = db?.noteDAO()
 
-//        val dataNotes = listOf(
-//            NoteModels(title = "telegram",note = "t.me/yardeveloper"),
-//            NoteModels(title = "instagram",note = "instagram.com/yardeveloper"),
-//            NoteModels(title = "developer",note = "developer android"),
-//            NoteModels(title = "MyName",note = "i'm alirezabashi98"),
-//            NoteModels(title = "MyNames",note = "i'm alirezabashi98 i'm alirezabashi98i'm alirezabashi98i'm alirezabashi98i'm alirezabashi98")
-//        )
-
         Thread {
-
-//            dao?.inserts(dataNotes)
 
             recyclerView.adapter =
                 ListNotesAdapter(convertNotesModelToListNotes.convertNoteToListNotes(dao?.getAllNote()))
@@ -58,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         val menuInflater = menuInflater.inflate(R.menu.add_note, menu)
 
-        return super.onCreateOptionsMenu(menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -71,6 +61,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        return super.onOptionsItemSelected(item)
+        return true
     }
 }

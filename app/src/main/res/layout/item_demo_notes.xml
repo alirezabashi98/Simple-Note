@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="2dp"
     android:layout_margin="5dp"
-    android:background="@color/colorItemeBackgroundNotes">
+    android:background="@color/colorItemBackgroundNotes">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:textColor="@color/colorItemeTextTitleNotes"
+        android:textColor="@color/colorItemTextTitleNotes"
         android:text="title"
         android:textSize="16sp" />
 
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:padding="5dp"
-        android:textColor="@color/colorItemeTextTextNotes"
+        android:textColor="@color/colorItemTextTextNotes"
         android:text="title"
         android:textSize="13sp" />
 

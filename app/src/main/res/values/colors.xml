@@ -8,12 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-<!--    color stroke style background item notes    -->
+    <!--    color stroke style background item notes    -->
     <color name="colorStrokeBackgroundItemNotes">#BBBBBB</color>
 
-<!--    color layout item demo notes    -->
-    <color name="colorItemeBackgroundNotes">#FFFFFF</color>
-    <color name="colorItemeTextTitleNotes">#141414</color>
-    <color name="colorItemeTextTextNotes">#6F6F6F</color>
+    <!--    color layout item demo notes    -->
+    <color name="colorItemBackgroundNotes">#FFFFFF</color>
+    <color name="colorItemTextTitleNotes">#141414</color>
+    <color name="colorItemTextTextNotes">#6F6F6F</color>
 
 </resources>
