@@ -9,10 +9,11 @@
     <color name="white">#FFFFFFFF</color>
 
 <!--    color stroke style background item notes    -->
-    <color name="colorStrokeBackgroundItemNotes">#A4A4A4</color>
+    <color name="colorStrokeBackgroundItemNotes">#BBBBBB</color>
 
 <!--    color layout item demo notes    -->
-    <color name="colorTextTitleNotes">#141414</color>
-    <color name="colorTextTextNotes">#494949</color>
+    <color name="colorItemeBackgroundNotes">#FFFFFF</color>
+    <color name="colorItemeTextTitleNotes">#141414</color>
+    <color name="colorItemeTextTextNotes">#6F6F6F</color>
 
 </resources>
