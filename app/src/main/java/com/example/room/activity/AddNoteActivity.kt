@@ -47,7 +47,7 @@ class AddNoteActivity : AppCompatActivity() {
 
             }.start()
 
-        }else toast("note null")
+        }else toast("Nothing saved")
 
         startActivity<MainActivity>()
         finish()
