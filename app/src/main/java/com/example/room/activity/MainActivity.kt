@@ -3,14 +3,15 @@ package com.example.room.activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.airbnb.lottie.LottieAnimationView
 import com.example.room.R
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.dao.NoteDao
 import com.example.room.database.MyDatabase
-import com.example.room.model.NoteModels
 import com.example.room.utility.ConvertNoteModelToListNotes
 import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
@@ -18,6 +19,7 @@ import org.koin.android.ext.android.inject
 class MainActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
+    lateinit var lottieAnim: LottieAnimationView
     val convertNotesModelToListNotes: ConvertNoteModelToListNotes by inject()
 
     lateinit var db: MyDatabase
@@ -35,9 +37,18 @@ class MainActivity : AppCompatActivity() {
 
         Thread {
 
-            recyclerView.adapter =
-                ListNotesAdapter(convertNotesModelToListNotes.convertNoteToListNotes(dao.getAllNote()))
+            if (dao.getAllNote().isEmpty()) {
+                recyclerView.visibility = View.GONE
+                lottieAnim.visibility = View.VISIBLE
+            } else {
 
+                recyclerView.visibility = View.VISIBLE
+                lottieAnim.visibility = View.GONE
+
+                recyclerView.adapter =
+                    ListNotesAdapter(convertNotesModelToListNotes.convertNoteToListNotes(dao.getAllNote()))
+
+            }
         }.start()
 
     }
@@ -47,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.rcy_mainActivity_listNote)
         recyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+        lottieAnim = findViewById(R.id.aView_mainActivity_Empty)
+
 
     }
 
