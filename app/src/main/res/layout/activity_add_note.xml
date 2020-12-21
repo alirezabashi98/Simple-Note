@@ -9,6 +9,7 @@
     tools:context=".activity.AddNoteActivity">
 
     <EditText
+        android:id="@+id/edt_addNoteActivity_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
@@ -20,6 +21,7 @@
         android:textSize="18sp" />
 
     <EditText
+        android:id="@+id/edt_addNoteActivity_note"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="top"
