@@ -31,6 +31,7 @@ class AddNoteActivity : AppCompatActivity() {
         dao = db.noteDAO()
 
         id = intent.getIntExtra("idNote", -1)
+
         titleNote.setText(intent.getStringExtra("titleNote"))
         textNote.setText(intent.getStringExtra("textNote"))
     }
@@ -44,9 +45,8 @@ class AddNoteActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
 
-        if (id != -1) {
-
-            Thread{
+        if (id != -1 && id != null) {
+            Thread {
 
                 dao.updateNote(
                     NoteModels(
@@ -56,7 +56,7 @@ class AddNoteActivity : AppCompatActivity() {
                     )
                 )
 
-            }
+            }.start()
 
         } else if (!titleNote.text.toString().equals("") || !textNote.text.toString().equals("")) {
 
@@ -74,6 +74,6 @@ class AddNoteActivity : AppCompatActivity() {
         } else toast("Nothing saved")
 
         startActivity<MainActivity>()
-        finish()
+        finishAffinity()
     }
 }

@@ -10,6 +10,7 @@ import com.example.room.R
 import com.example.room.adapter.ListNotesAdapter
 import com.example.room.dao.NoteDao
 import com.example.room.database.MyDatabase
+import com.example.room.model.NoteModels
 import com.example.room.utility.ConvertNoteModelToListNotes
 import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
