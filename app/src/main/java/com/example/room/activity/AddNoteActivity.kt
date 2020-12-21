@@ -12,11 +12,13 @@ import org.jetbrains.anko.toast
 
 class AddNoteActivity : AppCompatActivity() {
 
-    lateinit var db : MyDatabase
-    lateinit var dao : NoteDao
+    lateinit var db: MyDatabase
+    lateinit var dao: NoteDao
 
-    lateinit var titleNote : EditText
-    lateinit var textNote : EditText
+    lateinit var titleNote: EditText
+    lateinit var textNote: EditText
+
+    var id: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +30,12 @@ class AddNoteActivity : AppCompatActivity() {
         db = MyDatabase.getMyDatabase(this)!!
         dao = db.noteDAO()
 
+        id = intent.getIntExtra("idNote", -1)
+        titleNote.setText(intent.getStringExtra("titleNote"))
+        textNote.setText(intent.getStringExtra("textNote"))
     }
 
-    fun Cast(){
+    fun Cast() {
 
         titleNote = findViewById(R.id.edt_addNoteActivity_title)
         textNote = findViewById(R.id.edt_addNoteActivity_note)
@@ -39,15 +44,34 @@ class AddNoteActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
 
-        if (!titleNote.text.toString().equals("") || !textNote.text.toString().equals("")){
+        if (id != -1) {
 
             Thread{
 
-                dao.insert(NoteModels(title = titleNote.text.toString(),note = textNote.text.toString()))
+                dao.updateNote(
+                    NoteModels(
+                        id = id,
+                        title = titleNote.text.toString(),
+                        note = textNote.text.toString()
+                    )
+                )
+
+            }
+
+        } else if (!titleNote.text.toString().equals("") || !textNote.text.toString().equals("")) {
+
+            Thread {
+
+                dao.insert(
+                    NoteModels(
+                        title = titleNote.text.toString(),
+                        note = textNote.text.toString()
+                    )
+                )
 
             }.start()
 
-        }else toast("Nothing saved")
+        } else toast("Nothing saved")
 
         startActivity<MainActivity>()
         finish()
