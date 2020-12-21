@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.room.R
 import com.example.room.adapter.ListNotesAdapter
+import com.example.room.dao.NoteDao
 import com.example.room.database.MyDatabase
 import com.example.room.utility.ConvertNoteModelToListNotes
 import org.jetbrains.anko.startActivity
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     val convertNotesModelToListNotes: ConvertNoteModelToListNotes by inject()
 
+    lateinit var db: MyDatabase
+    lateinit var dao: NoteDao
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,13 +29,13 @@ class MainActivity : AppCompatActivity() {
 
         CastView()
 
-        val db = MyDatabase.getMyDatabase(this)
-        val dao = db?.noteDAO()
+        db = MyDatabase.getMyDatabase(this)!!
+        dao = db.noteDAO()
 
         Thread {
 
             recyclerView.adapter =
-                ListNotesAdapter(convertNotesModelToListNotes.convertNoteToListNotes(dao?.getAllNote()))
+                ListNotesAdapter(convertNotesModelToListNotes.convertNoteToListNotes(dao.getAllNote()))
 
         }.start()
 
@@ -56,7 +60,10 @@ class MainActivity : AppCompatActivity() {
 
         when (item.itemId) {
 
-            R.id.item_menuAddNote -> startActivity<AddNoteActivity>()
+            R.id.item_menuAddNote -> {
+                startActivity<AddNoteActivity>()
+                finish()
+            }
             else -> {
             }
 

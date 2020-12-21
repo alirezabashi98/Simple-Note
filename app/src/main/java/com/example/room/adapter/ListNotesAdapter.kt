@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.room.R
 import com.example.room.model.ListNotesModel
 
-class ListNotesAdapter(private val data: List<ListNotesModel>) :
+class ListNotesAdapter(private var data: List<ListNotesModel>) :
     RecyclerView.Adapter<ListNotesAdapter.ViewHolderListNotes>() {
 
     inner class ViewHolderListNotes(view: View) : RecyclerView.ViewHolder(view) {
@@ -32,5 +32,10 @@ class ListNotesAdapter(private val data: List<ListNotesModel>) :
         holder.setData(data[position])
 
     override fun getItemCount(): Int = data.size
+
+    fun onRestart(dataNew:List<ListNotesModel>){
+        data = dataNew
+        notifyDataSetChanged()
+    }
 
 }

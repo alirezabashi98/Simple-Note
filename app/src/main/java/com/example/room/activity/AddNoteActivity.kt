@@ -7,6 +7,7 @@ import com.example.room.R
 import com.example.room.dao.NoteDao
 import com.example.room.database.MyDatabase
 import com.example.room.model.NoteModels
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class AddNoteActivity : AppCompatActivity() {
@@ -48,6 +49,7 @@ class AddNoteActivity : AppCompatActivity() {
 
         }else toast("note null")
 
-        super.onBackPressed()
+        startActivity<MainActivity>()
+        finish()
     }
 }
