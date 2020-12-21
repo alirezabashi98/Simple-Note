@@ -54,5 +54,8 @@ dependencies {
     // Anko Commons
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
 
+    // library lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
 
 }

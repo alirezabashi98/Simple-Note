@@ -8,6 +8,9 @@ buildscript {
     // library anko
     ext.anko_version='0.10.5'
 
+    // library lottie
+    ext.lottieVersion = '3.4.0'
+
     repositories {
         google()
         jcenter()
