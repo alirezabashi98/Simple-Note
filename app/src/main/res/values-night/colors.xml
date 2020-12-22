@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--    color stroke style background item notes    -->
-    <color name="colorStrokeBackgroundItemNotes">#BBBBBB</color>
+    <color name="colorStrokeBackgroundItemNotes">#666666</color>
 
     <!--    color layout item demo notes    -->
     <color name="colorItemBackgroundNotes">#0C0C0C</color>
