@@ -6,6 +6,4 @@
     <stroke android:color="@color/colorStrokeBackgroundItemNotes"
         android:width="1dp"/>
 
-    <solid android:color="@color/colorItemBackgroundNotes"/>
-
 </shape>
