@@ -19,7 +19,7 @@ interface NoteDao {
     fun getNoteByTitle(title: String): List<NoteModels>
 
     @Query("SELECT * FROM Note WHERE id = :id")
-    fun getNoteById(id: Int): List<NoteModels>
+    fun getNoteById(id: Int): NoteModels
 
     @Delete
     fun DeleteNote(note:NoteModels)
