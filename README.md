@@ -1,6 +1,5 @@
 # Simple-Note
 library room for android kotlin :sunglasses:
 <br>
-![image demo app theme night](https://github.com/alirezabashi98/Simple-Note/raw/master/img001.jpg "Night theme")
-<br>
-![image demo app](https://github.com/alirezabashi98/Simple-Note/raw/master/img002.jpg "Theme of the day")
+<img src="https://github.com/alirezabashi98/Simple-Note/raw/master/img001.jpg" alt="image demo app theme night" title="Night theme" width="200" height="400" />
+<img src="https://github.com/alirezabashi98/Simple-Note/raw/master/img002.jpg" alt="image demo app" title="Theme of the day" width="200" height="400" />
